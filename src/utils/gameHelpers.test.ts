@@ -82,7 +82,7 @@ describe('gameHelpers', () => {
     });
 
     it('should follow probability distribution (approximately)', () => {
-      const counts = { 2: 0, 4: 0 };
+      const counts: Record<number, number> = { 2: 0, 4: 0 };
       const iterations = 1000;
 
       for (let i = 0; i < iterations; i++) {
@@ -259,44 +259,44 @@ describe('gameHelpers', () => {
   describe('rotateBoard', () => {
     it('should rotate board 90 degrees clockwise', () => {
       const board = initializeBoard();
-      board[0][0] = createTile(1, 0, 0);
-      board[0][3] = createTile(2, 0, 3);
+      board[0][0] = createTile(2, 0, 0);
+      board[0][3] = createTile(4, 0, 3);
 
       const rotated = rotateBoard(board, 1);
 
-      expect(rotated[0][3]?.value).toBe(1);
-      expect(rotated[3][3]?.value).toBe(2);
+      expect(rotated[0][3]?.value).toBe(2);
+      expect(rotated[3][3]?.value).toBe(4);
     });
 
     it('should rotate board 180 degrees', () => {
       const board = initializeBoard();
-      board[0][0] = createTile(1, 0, 0);
-      board[0][3] = createTile(2, 0, 3);
+      board[0][0] = createTile(2, 0, 0);
+      board[0][3] = createTile(4, 0, 3);
 
       const rotated = rotateBoard(board, 2);
 
-      expect(rotated[3][3]?.value).toBe(1);
-      expect(rotated[3][0]?.value).toBe(2);
+      expect(rotated[3][3]?.value).toBe(2);
+      expect(rotated[3][0]?.value).toBe(4);
     });
 
     it('should rotate board 270 degrees clockwise', () => {
       const board = initializeBoard();
-      board[0][0] = createTile(1, 0, 0);
-      board[0][3] = createTile(2, 0, 3);
+      board[0][0] = createTile(2, 0, 0);
+      board[0][3] = createTile(4, 0, 3);
 
       const rotated = rotateBoard(board, 3);
 
-      expect(rotated[3][0]?.value).toBe(1);
-      expect(rotated[0][0]?.value).toBe(2);
+      expect(rotated[3][0]?.value).toBe(2);
+      expect(rotated[0][0]?.value).toBe(4);
     });
 
     it('should handle 0 rotations (identity)', () => {
       const board = initializeBoard();
-      board[0][0] = createTile(1, 0, 0);
+      board[0][0] = createTile(2, 0, 0);
 
       const rotated = rotateBoard(board, 0);
 
-      expect(rotated[0][0]?.value).toBe(1);
+      expect(rotated[0][0]?.value).toBe(2);
     });
   });
 
