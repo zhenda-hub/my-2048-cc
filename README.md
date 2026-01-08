@@ -43,6 +43,30 @@ npm run type-check
 npm run preview
 ```
 
+## 🧪 Testing
+
+This project uses **Vitest** for unit testing with **happy-dom** as the test environment.
+
+### Run Tests
+```bash
+# Run tests in watch mode
+npm run test
+
+# Run tests once
+npm run test:run
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Test Coverage
+- **72 tests** covering core game logic and state management
+- `src/utils/gameHelpers.test.ts` - Tests for tile movement, merging, win/lose detection
+- `src/composables/useGameState.test.ts` - Tests for game state composable
+
 ## 🏗️ Project Structure
 
 ```
